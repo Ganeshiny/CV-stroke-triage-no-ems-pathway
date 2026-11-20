@@ -1,5 +1,6 @@
 from file_paths import *
 import csv
+import statistics
 
 def write(name, rows, cols):
     with open(OUT / name, "w", newline="", encoding="utf-8") as f:
@@ -11,3 +12,6 @@ def write(name, rows, cols):
 
 def pct(x):
     return round(x * 100, 1) if isinstance(x, float) else x
+
+def st_median(v):
+    return statistics.median(v)

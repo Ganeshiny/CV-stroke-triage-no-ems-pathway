@@ -10,6 +10,7 @@ import csv, statistics
 from collections import defaultdict
 from file_paths import *
 from statistics import median as st_median
+from utils import st_median
 
 def main():
     obs = []  # (wait_minutes, city, facility)
@@ -32,6 +33,19 @@ def main():
     ]
     with open(OUT / "AB_WAITTIME_01_wait_summary.csv", "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f); w.writerow(["stat", "value"]); w.writerows(stats)
+
+
+    # By city in AB - this is for plotting 
+
+    by_city = defaultdict(list)
+    for w_, c, _ in obs:
+        by_city[c].append(w_)
+    with open(OUT / "AB_WAITTIME_01_wait_bycity_summary.csv", "w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f); w.writerow(["city", "n", "median_min", "p90_min"])
+        for c, v in sorted(by_city.items(), key=lambda kv: -statistics.median(kv[1])):
+            v.sort()
+            w.writerow([c, len(v), statistics.median(v), v[int(len(v) * 0.9)]])
+
 
 if __name__ == "__main__":
     main()
