@@ -1,0 +1,5 @@
+stat,value
+n_hourly_snapshots,3658
+n_facilities,23
+median_wait_min,256.0
+pct_snapshots_over_4h,55.2

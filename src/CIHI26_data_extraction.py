@@ -1,5 +1,3 @@
-# This script handles extraction and storing of data from the data files
-
 import csv
 from file_paths import *
 from utils import write
