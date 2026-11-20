@@ -1,9 +1,11 @@
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
+#print(HERE)
 ROOT = HERE.parent
+#print(ROOT)
 DATA = ROOT / "data"
-OUT = HERE / "results"
+OUT = ROOT / "results"
 
 OUT.mkdir(exist_ok = True)
 
