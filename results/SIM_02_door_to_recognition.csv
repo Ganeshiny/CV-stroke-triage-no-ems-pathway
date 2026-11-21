@@ -1,0 +1,4 @@
+arm,prevalence,median_min,p75_min,p90_min,share_over_4h,share_over_24h
+baseline,all,247.5,450.6,889.7,0.5157,0.0069
+FaceFAST_CV,all,10.0,10.0,126.6,0.0625,0.0007
+DeepStroke_CV,all,10.0,10.0,108.6,0.0591,0.0008
